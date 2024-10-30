@@ -5,23 +5,18 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\AlumniResource\Pages;
 use App\Models\Alumni;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\TextArea;
 use Filament\Forms\Components\FileUpload;
-use Filament\Forms\Components\Select;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ImageColumn;
-use Filament\Tables\Columns\SelectColumn;
-use Filament\Actions\Imports\ImportColumn;
-use Filament\Actions\Imports\Importer;
-use Filament\Actions\Imports\Models\Import;
-use App\Filament\Imports\AlumniImporter;
+use App\Imports\AlumniImport;
 use Maatwebsite\Excel\Facades\Excel;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Filament\Tables\Actions\Action;
-use Filament\Facades\Filament;
+use Filament\Notifications\Notification;
+use Filament\Tables\Actions\ImportAction;
 
 class AlumniResource extends Resource
 {
@@ -62,8 +57,13 @@ class AlumniResource extends Resource
                 Action::make('import')
                     ->label('Import Alumni')
                     ->action(function (array $data) {
-                        Excel::import(new AlumniImporter, $data['file']->getRealPath()); // Menggunakan kelas importer
-                        Filament::notify('success', 'Data berhasil diimpor!');
+                        // Menggunakan Excel facade untuk menjalankan import
+                        Excel::import(new AlumniImport, storage_path('app/public/' . $data['file']));
+
+                        Notification::make()
+                            ->title('Data berhasil diimpor!')
+                            ->success()
+                            ->send();
                     })
                     ->form([
                         FileUpload::make('file')
@@ -71,14 +71,17 @@ class AlumniResource extends Resource
                             ->acceptedFileTypes(['text/csv', 'application/vnd.ms-excel'])
                             ->required(),
                     ])
-                    ->icon('heroicon-o-upload'),
             ])
+
             ->columns([
                 TextColumn::make('row_number')
                     ->label('No')
-                    ->getStateUsing(function ($column, $rowLoop) {
-                        return $rowLoop->index + 1;
+                    ->getStateUsing(function ($record, $rowLoop) {
+                        $currentPage = request()->input('page', 1);
+                        $perPage = 10;
+                        return (($currentPage - 1) * $perPage) + ($rowLoop->index + 1);
                     }),
+
                 TextColumn::make('nisn'),
                 TextColumn::make('nama_lengkap'),
                 TextColumn::make('asal_kelas'),
