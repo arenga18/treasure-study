@@ -16,7 +16,8 @@ class Alumni extends Model
         'asal_kelas',
         'foto',
         'diterima_pada',
-        'jurusan'
+        'jurusan',
+        'tahun_lulus',
     ];
 
     use HasFactory;

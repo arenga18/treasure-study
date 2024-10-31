@@ -2,6 +2,8 @@
 
 namespace App\Filament\Resources;
 
+use App\Exports\AlumniExport;
+use App\Exports\AlumniSelectedExport;
 use App\Filament\Resources\AlumniResource\Pages;
 use App\Models\Alumni;
 use Filament\Forms\Components\TextInput;
@@ -16,6 +18,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Filament\Tables\Actions\Action;
 use Filament\Notifications\Notification;
+use Filament\Tables\Actions\BulkAction;
 use Filament\Tables\Actions\ImportAction;
 
 class AlumniResource extends Resource
@@ -47,6 +50,9 @@ class AlumniResource extends Resource
                     ->imageEditor(),
                 TextInput::make('diterima_pada')->required(),
                 TextInput::make('jurusan')->required(),
+                TextInput::make('tahun_lulus')
+                    ->numeric()
+                    ->required(),
             ]);
     }
 
@@ -67,10 +73,17 @@ class AlumniResource extends Resource
                     })
                     ->form([
                         FileUpload::make('file')
-                            ->label('Upload CSV')
-                            ->acceptedFileTypes(['text/csv', 'application/vnd.ms-excel'])
+                            ->label('Upload CSV / XLSX')
+                            ->acceptedFileTypes(['text/csv', 'text/plain', 'application/vnd.ms-excel', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'])
                             ->required(),
                     ])
+                    ->icon("heroicon-o-document-arrow-down"),
+                Action::make('export')
+                    ->label("Export to Excel")
+                    ->icon("heroicon-o-document-arrow-down")
+                    ->action(function () {
+                        return Excel::download(new AlumniExport, 'alumni.xlsx');
+                    })
             ])
 
             ->columns([
@@ -88,6 +101,7 @@ class AlumniResource extends Resource
                 ImageColumn::make('foto'),
                 TextColumn::make('diterima_pada'),
                 TextColumn::make('jurusan'),
+                TextColumn::make('tahun_lulus'),
             ])
             ->filters([
                 //
@@ -98,7 +112,14 @@ class AlumniResource extends Resource
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
+                    BulkAction::make('export')
+                        ->label("Export to Excel")
+                        ->icon("heroicon-o-document-arrow-down")
+                        ->action(function ($records) {
+                            return Excel::download(new AlumniSelectedExport($records), 'alumni.xlsx');
+                        })
                 ]),
+
             ]);
     }
 

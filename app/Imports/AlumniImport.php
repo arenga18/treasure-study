@@ -24,6 +24,7 @@ class AlumniImport implements ToCollection
                 'foto' => $row[3],
                 'diterima_pada' => $row[4],
                 'jurusan' => $row[5],
+                'tahun_lulus' => $row[6],
             ]);
         }
     }

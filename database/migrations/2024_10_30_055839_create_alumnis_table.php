@@ -15,10 +15,11 @@ return new class extends Migration
             $table->id();
             $table->text('nisn');
             $table->text('nama_lengkap');
-            $table->text('asal kelas');
+            $table->text('asal_kelas');
             $table->text('foto')->nullable();
-            $table->text('diterima_di');
+            $table->text('diterima_pada');
             $table->text('jurusan');
+            $table->text('tahun_lulus');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('alumnis');
+        Schema::dropIfExists('alumni');
     }
 };
