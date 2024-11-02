@@ -12,12 +12,13 @@ class Alumni extends Model
 
     protected $fillable = [
         'nisn',
-        'nama_lengkap',
-        'asal_kelas',
+        'nama_siswa',
+        'kelas',
         'foto',
-        'diterima_pada',
+        'perguruan_tinggi',
         'jurusan',
         'tahun_lulus',
+        'sistem_seleksi',
     ];
 
     use HasFactory;

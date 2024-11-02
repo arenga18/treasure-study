@@ -42,17 +42,17 @@ class AlumniResource extends Resource
         return $form
             ->schema([
                 TextInput::make('nisn')->required(),
-                TextInput::make('nama_lengkap')->required(),
-                TextInput::make('asal_kelas')->required(),
+                TextInput::make('nama_siswa')->required(),
+                TextInput::make('kelas')->required(),
                 FileUpload::make('foto')
-                    ->required()
                     ->image()
                     ->imageEditor(),
-                TextInput::make('diterima_pada')->required(),
+                TextInput::make('perguruan_tinggi')->required(),
                 TextInput::make('jurusan')->required(),
                 TextInput::make('tahun_lulus')
                     ->numeric()
                     ->required(),
+                TextInput::make('sistem_seleksi')
             ]);
     }
 
@@ -85,7 +85,6 @@ class AlumniResource extends Resource
                         return Excel::download(new AlumniExport, 'alumni.xlsx');
                     })
             ])
-
             ->columns([
                 TextColumn::make('row_number')
                     ->label('No')
@@ -96,12 +95,13 @@ class AlumniResource extends Resource
                     }),
 
                 TextColumn::make('nisn'),
-                TextColumn::make('nama_lengkap'),
-                TextColumn::make('asal_kelas'),
+                TextColumn::make('nama_siswa'),
+                TextColumn::make('kelas'),
                 ImageColumn::make('foto'),
-                TextColumn::make('diterima_pada'),
+                TextColumn::make('perguruan_tinggi'),
                 TextColumn::make('jurusan'),
                 TextColumn::make('tahun_lulus'),
+                TextColumn::make('sistem_seleksi'),
             ])
             ->filters([
                 //

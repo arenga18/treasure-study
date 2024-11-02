@@ -14,12 +14,13 @@ return new class extends Migration
         Schema::create('alumni', function (Blueprint $table) {
             $table->id();
             $table->text('nisn');
-            $table->text('nama_lengkap');
-            $table->text('asal_kelas');
+            $table->text('nama_siswa');
+            $table->text('kelas');
             $table->text('foto')->nullable();
-            $table->text('diterima_pada');
+            $table->text('perguruan_tinggi');
             $table->text('jurusan');
             $table->text('tahun_lulus');
+            $table->text('sistem_seleksi');
             $table->timestamps();
         });
     }

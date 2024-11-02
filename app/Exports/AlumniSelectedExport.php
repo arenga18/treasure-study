@@ -30,12 +30,13 @@ class AlumniSelectedExport implements FromCollection, WithMapping, WithHeadings
     {
         return [
             'No',
-            'Nama_Lengkap',
-            'Asal_kelas',
+            'Nama Siswa',
+            'Kelas',
             'Foto',
-            'Diterima_Pada',
+            'Perguruan Tinggi',
             'Jurusan',
             'Tahun lulus',
+            'Sistem Seleksi',
         ];
     }
 
@@ -43,12 +44,13 @@ class AlumniSelectedExport implements FromCollection, WithMapping, WithHeadings
     {
         return [
             $alumni->nisn,
-            $alumni->nama_lengkap,
-            $alumni->asal_kelas,
+            $alumni->nama_siswa,
+            $alumni->kelas,
             $alumni->foto,
-            $alumni->diterima_pada,
+            $alumni->perguruan_tinggi,
             $alumni->jurusan,
             $alumni->tahun_lulus,
+            $alumni->sistem_seleksi,
         ];
     }
 }

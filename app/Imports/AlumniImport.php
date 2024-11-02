@@ -19,12 +19,13 @@ class AlumniImport implements ToCollection
         foreach ($collection as $row) {
             Alumni::create([
                 'nisn' => $row[0],
-                'nama_lengkap' => $row[1],
-                'asal_kelas' => $row[2],
+                'nama_siswa' => $row[1],
+                'kelas' => $row[2],
                 'foto' => $row[3],
-                'diterima_pada' => $row[4],
+                'perguruan_tinggi' => $row[4],
                 'jurusan' => $row[5],
                 'tahun_lulus' => $row[6],
+                'sistem_seleksi' => $row[7],
             ]);
         }
     }
