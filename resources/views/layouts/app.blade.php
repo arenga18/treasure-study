@@ -10,6 +10,7 @@
     rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
   <link rel="stylesheet" href="{{ asset('css/lineicons.css') }}">
+  {{-- @vite('resources/css/app.css') --}}
 </head>
 
 <body>
