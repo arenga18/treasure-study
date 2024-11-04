@@ -19,7 +19,9 @@ use Filament\Tables\Table;
 use Filament\Tables\Actions\Action;
 use Filament\Notifications\Notification;
 use Filament\Tables\Actions\BulkAction;
-use Filament\Tables\Actions\ImportAction;
+use Filament\Tables\Filters\Filter;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Contracts\Support\Htmlable;
 
 class AlumniResource extends Resource
 {
@@ -34,7 +36,6 @@ class AlumniResource extends Resource
     protected static ?string $pluralLabel = 'Alumni';
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-
 
 
     public static function form(Form $form): Form
@@ -93,19 +94,19 @@ class AlumniResource extends Resource
                         $perPage = 10;
                         return (($currentPage - 1) * $perPage) + ($rowLoop->index + 1);
                     }),
-
-                TextColumn::make('nisn'),
-                TextColumn::make('nama_siswa'),
-                TextColumn::make('kelas'),
-                ImageColumn::make('foto'),
-                TextColumn::make('perguruan_tinggi'),
-                TextColumn::make('jurusan'),
-                TextColumn::make('tahun_lulus'),
-                TextColumn::make('sistem_seleksi'),
+                TextColumn::make('nisn')->searchable(),
+                TextColumn::make('nama_siswa')->searchable(),
+                TextColumn::make('kelas')->searchable(),
+                ImageColumn::make('foto')
+                    ->searchable()
+                    ->width(60)
+                    ->height(60),
+                TextColumn::make('perguruan_tinggi')->searchable(),
+                TextColumn::make('jurusan')->searchable(),
+                TextColumn::make('tahun_lulus')->searchable(),
+                TextColumn::make('sistem_seleksi')->searchable(),
             ])
-            ->filters([
-                //
-            ])
+            ->filters([])
             ->actions([
                 Tables\Actions\EditAction::make(),
             ])
@@ -119,8 +120,8 @@ class AlumniResource extends Resource
                             return Excel::download(new AlumniSelectedExport($records), 'alumni.xlsx');
                         })
                 ]),
-
-            ]);
+            ])
+            ->searchable();
     }
 
     public static function getRelations(): array

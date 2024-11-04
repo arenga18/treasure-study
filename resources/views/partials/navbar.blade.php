@@ -21,13 +21,13 @@
             <ul class="items-center content-start mr-auto lg:justify-center md:justify-end navbar-nav md:flex">
 
               <!-- HOME -->
-              <li class="nav-item {{ Route::is('sma.landing_page') ? 'active' : '' }}">
-                <a class="page-scroll font-bold" href="#">HOME</a>
+              <li class="nav-item {{ Route::is('home') ? 'active' : '' }}">
+                <a class="page-scroll font-bold" href="{{ route('home') }}">HOME</a>
               </li>
 
               <!-- TRACER STUDY -->
-              <li class="nav-item {{ Route::is('sma.galery', 'smp.galery') ? 'active' : '' }}">
-                <a class="page-scroll font-bold" href="#">TRACER STUDY</a>
+              <li class="nav-item {{ Route::is('alumni') ? 'active' : '' }}">
+                <a class="page-scroll font-bold" href="{{ route('alumni') }}">TRACER STUDY</a>
               </li>
 
             </ul>

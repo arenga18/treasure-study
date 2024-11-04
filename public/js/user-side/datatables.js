@@ -7,9 +7,8 @@ $(document).ready(function () {
         paging: false,
         searching: true,
         language: {
-            search: "",
-            searchPlaceholder: "Cari...",
-            lengthMenu: "",
+            search: "Pencarian data:",
+            lengthMenu: "20",
         },
         order: [[1, "asc"]],
         rowCallback: function (row, data, index) {

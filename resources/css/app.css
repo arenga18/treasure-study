@@ -142,12 +142,13 @@ p {
 }
 
 #myTable_wrapper {
-    margin-top: 3rem !important;
+    margin-top: 1rem !important;
 }
 
 td,
 th {
     text-align: left !important;
+    padding: 1.3rem 1.2rem !important;
 }
 
 .animate-spin {
@@ -161,6 +162,40 @@ th {
     to {
         transform: rotate(360deg);
     }
+}
+
+@keyframes hero-dot-1 {
+    from {
+        transform: translateY(-100px);
+    }
+    to {
+        transform: translateY(0px);
+    }
+}
+
+.hero-1-dot {
+    bottom: -25px;
+    left: -30px;
+    animation: hero-dot-1 5s linear 0s infinite alternate;
+}
+
+/* DATATABLE */
+
+table.dataTable > thead > tr > th:nth-child(1),
+table.dataTable > tbody > tr > td:first-child {
+    text-align: center !important;
+}
+
+div.dt-container div.dt-layout-row div.dt-layout-cell {
+    overflow-x: auto !important;
+}
+
+div.dt-container .dt-search input {
+    background-color: #ffffff !important;
+    padding: 6px 12px;
+    border: 1px solid #ddd;
+    margin-left: 10px;
+    outline: none;
 }
 
 .article-content figure {
