@@ -3,7 +3,7 @@
 @section('title', 'Home Page | Labschool Cirendeu')
 
 @section('content')
-  <div class="mt-28">
+  <div class="mt-[93.63px] md:mt-28">
     <section class="py-14 bg-gray-100">
       <div class="container mx-auto px-4">
         <h1 id="judul" class="text-center font-bold text-2xl md:text-3xl mb-12 text-blue-600">Daftar Siswa-Siswi SMA

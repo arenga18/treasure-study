@@ -4,7 +4,7 @@
       <div class="w-full">
         <nav class="flex items-center justify-between navbar navbar-expand-md">
           <a class="mr-4 navbar-brand" href="#">
-            <img src="{{ url('img/logo-nav.png') }}" alt="Logo" width="200" height="90">
+            <img src="{{ url('img/logo-nav.png') }}" alt="Logo" class="w-[150px] md:w-[200px]">
           </a>
 
           <!-- Tombol Hamburger untuk Mobile -->
@@ -22,12 +22,12 @@
 
               <!-- HOME -->
               <li class="nav-item {{ Route::is('home') ? 'active' : '' }}">
-                <a class="page-scroll font-bold" href="{{ route('home') }}">HOME</a>
+                <a class="page-scroll font-bold text-sm my-[10px] md:m-0" href="{{ route('home') }}">HOME</a>
               </li>
 
               <!-- TRACER STUDY -->
               <li class="nav-item {{ Route::is('alumni') ? 'active' : '' }}">
-                <a class="page-scroll font-bold" href="{{ route('alumni') }}">TRACER STUDY</a>
+                <a class="page-scroll font-bold text-sm my-[10px] md:m-0" href="{{ route('alumni') }}">TRACER STUDY</a>
               </li>
 
             </ul>
