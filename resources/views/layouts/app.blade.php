@@ -32,6 +32,7 @@
     integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   <script src="https://cdn.datatables.net/2.1.8/js/dataTables.min.js"></script>
 
+  <script src="{{ asset('js/user-side/main.js') }}"></script>
   <script src="{{ asset('js/user-side/datatables.js') }}"></script>
   <script src="{{ asset('js/user-side/slick.min.js') }}"></script>
   <script src="{{ asset('js/user-side/scrolling-nav.js') }}"></script>
