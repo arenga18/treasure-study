@@ -29,7 +29,7 @@ class AlumniExport implements FromCollection, WithMapping, WithHeadings
     public function headings(): array
     {
         return [
-            'No',
+            'NISN',
             'Nama Siswa',
             'Kelas',
             'Foto',
@@ -43,7 +43,6 @@ class AlumniExport implements FromCollection, WithMapping, WithHeadings
     public function map($alumni): array
     {
         return [
-            $alumni->nisn,
             $alumni->nama_siswa,
             $alumni->kelas,
             $alumni->foto,
