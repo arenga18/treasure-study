@@ -14,7 +14,7 @@ class AlumniImport implements ToCollection
     public function collection(Collection $collection)
     {
         // Lewati header pada baris pertama
-        $collection->shift();
+        // $collection->shift();
 
         foreach ($collection as $row) {
             Alumni::create([
