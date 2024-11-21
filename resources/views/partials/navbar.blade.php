@@ -32,7 +32,7 @@
 
               <!-- GRAFIK -->
               <li class="nav-item {{ Route::is('grafik') ? 'active' : '' }}">
-                <a class="page-scroll font-bold" href="{{ route('grafik') }}">GRAFIK</a>
+                <a class="page-scroll font-bold" href="{{ route('grafik') }}">Grafik</a>
               </li>
 
             </ul>
