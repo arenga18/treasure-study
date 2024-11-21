@@ -30,6 +30,11 @@
                 <a class="page-scroll font-bold" href="{{ route('alumni') }}">TRACER STUDY</a>
               </li>
 
+              <!-- GRAFIK -->
+              <li class="nav-item {{ Route::is('grafik') ? 'active' : '' }}">
+                <a class="page-scroll font-bold" href="{{ route('grafik') }}">GRAFIK</a>
+              </li>
+
             </ul>
           </div>
 
