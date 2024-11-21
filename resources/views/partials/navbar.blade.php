@@ -41,13 +41,13 @@
           {{-- SOCIAL MEDIA --}}
           <div class="items-center justify-end hidden navbar-social lg:flex">
             <ul class="flex footer-social">
-              <li><a target="_blank" href="#"><i class="lni-facebook-filled"></i></a></li>
+              <li><a target="_blank" href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
               <li><a href="https://www.youtube.com/@labschoolcirendeuofficial4329" target="_blank"><i
-                    class="lni-youtube"></i></a></li>
+                    class="fa-brands fa-youtube"></i></a></li>
               <li><a href="https://www.instagram.com/labschoolcirendeu.official/" target="_blank"><i
-                    class="lni-instagram-original"></i></a></li>
+                    class="fa-brands fa-instagram"></i></a></li>
               <li><a href="https://www.linkedin.com/company/labschool-cirendeu/" target="_blank"><i
-                    class="lni-linkedin-original"></i></a></li>
+                    class="fa-brands fa-linkedin"></i></a></li>
             </ul>
           </div>
         </nav>
