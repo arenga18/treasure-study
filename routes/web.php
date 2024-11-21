@@ -19,3 +19,8 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/alumni', [AlumniController::class, 'index'])->name('alumni');
+
+
+Route::get('/grafik', function () {
+    return view('pages.grafik');
+})->name('grafik');

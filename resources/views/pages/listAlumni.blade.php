@@ -14,7 +14,14 @@
         <select id="tahunLulusFilter"
           class="block w-full p-2 border text-md md:text-xl border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-transparent md:mb-10">
           @foreach ($alumnis->pluck('tahun_lulus')->unique() as $tahun)
-            <option value="{{ $tahun }}" class="text-gray-900">{{ $tahun }}</option>
+            <option value="{{ $tahun }}" class="text-gray-900">
+              {{ $tahun }}
+              @if ($tahun == 2023)
+                - GANATARA
+              @elseif ($tahun == 2024)
+                - DARTANARA
+              @endif
+            </option>
           @endforeach
         </select>
 
