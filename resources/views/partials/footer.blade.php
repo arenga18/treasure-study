@@ -1,29 +1,29 @@
 <footer id="footer" class="footer-area">
-  <div class="mb-16 footer-widget">
+  <div class="my-10 lg:my-12 footer-widget">
     <div class="container">
       {{-- Footer Header --}}
       <div class="row">
         <div class="w-full">
-          <div class="items-end justify-between block mb-8 footer-logo-support md:flex">
-            <div class="flex items-end footer-logo">
-              <a class="mt-8" href="index.html">
+          <div class="items-center justify-between block mb-8 footer-logo-support md:flex">
+            <div class="flex items-center gap-5 footer-logo lg:gap-10">
+              <a href="index.html">
                 <img src="{{ asset('img/home-logo.png') }}" alt="Logo" width="120">
               </a>
-              <ul class="flex mt-8 ml-8 footer-social">
-                <li><a target="_blank" href="https://web.facebook.com/SMPLabschoolCirendeu?_rdc=1&_rdr"><i
-                      class="lni-facebook-filled"></i></a></li>
-                <li><a href="https://www.youtube.com/@smplabschoolcirendeu9228" target="_blank"><i
-                      class="lni-youtube"></i></a></li>
-                <li><a href="https://www.instagram.com/smplabsren.official/" target="_blank"><i
-                      class="lni-instagram-original"></i></a></li>
-                <li><a href="#" target="_blank"><i class="lni-linkedin-original"></i></a></li>
+              <ul class="flex footer-social ">
+                <li><a target="_blank" href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+                <li><a href="https://www.youtube.com/@labschoolcirendeuofficial4329" target="_blank"><i
+                      class="fa-brands fa-youtube"></i></a></li>
+                <li><a href="https://www.instagram.com/labschoolcirendeu.official/" target="_blank"><i
+                      class="fa-brands fa-instagram"></i></a></li>
+                <li><a href="https://www.linkedin.com/company/labschool-cirendeu/" target="_blank"><i
+                      class="fa-brands fa-linkedin"></i></a></li>
               </ul>
             </div>
           </div>
         </div>
       </div>
       {{-- Menu section --}}
-      <div class="row gap-10">
+      <div class="row gap-5 lg:gap-10">
         <!-- Informasi Dasar -->
         <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
           <div class="mb-8 footer-info">
