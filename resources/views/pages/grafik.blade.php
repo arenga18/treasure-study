@@ -16,8 +16,7 @@
               Lulusan Angkatan 1 GANATARA <br>
               SMA Labschool Cirendeu 2023
             </h2>
-            <img src="{{ asset('img/grafik/2023.png') }}"
-              class="w-full h-[320px] lg:h-[460px] bg-auto bg-blend-color-burn object-contain">
+            <img src="{{ asset('img/grafik/2023.png') }}" class="w-full h-[320px] lg:h-[460px] bg-auto rounded-lg shadow">
           </div>
 
           {{-- Grafik 2024 --}}
@@ -26,8 +25,7 @@
               Lulusan Angkatan 2 DARTANARA <br>
               SMA Labschool Cirendeu 2024
             </h2>
-            <img src="{{ asset('img/grafik/2024.png') }}"
-              class="w-full h-[320px] lg:h-[460px] bg-auto bg-blend-color-burn object-contain">
+            <img src="{{ asset('img/grafik/2024.png') }}" class="w-full h-[320px] lg:h-[460px] bg-auto rounded-lg shadow">
           </div>
         </div>
       </div>
