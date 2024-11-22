@@ -3,7 +3,7 @@
     <div class="row">
       <div class="w-full">
         <nav class="flex items-center justify-between navbar navbar-expand-md">
-          <a class="mr-4 navbar-brand" href="#">
+          <a class="mr-4 navbar-brand" href="{{ route('home') }}">
             <img src="{{ url('img/logo-nav.png') }}" alt="Logo" class="w-[150px] md:w-[200px]">
           </a>
 
