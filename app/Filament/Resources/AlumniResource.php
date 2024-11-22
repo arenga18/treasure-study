@@ -52,7 +52,7 @@ class AlumniResource extends Resource
                 TextInput::make('jurusan')->required(),
                 TextInput::make('tahun_lulus')
                     ->required(),
-                TextInput::make('sistem_seleksi')
+                TextInput::make('sistem_seleksi')->required()
             ]);
     }
 

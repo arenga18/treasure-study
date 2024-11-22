@@ -23,23 +23,24 @@
         </div>
       </div>
       {{-- Menu section --}}
-      <div class="row">
+      <div class="row gap-10">
         <!-- Informasi Dasar -->
         <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
           <div class="mb-8 footer-info">
             <h6 class="footer-title">Informasi Dasar</h6>
-            <ul class="">
-              <li class="flex items-center">
-                <i class="lni-phone" class="text-lg"></i>
-                <span class="ml-2">+62 123 4567</span>
+            <ul>
+              <li class="flex items-center mb-2">
+                <i class="fa-solid fa-phone"></i>
+                <span class="ml-2">0881-5668-006 (Sekretariat)</span>
               </li>
-              <li class="flex items-center">
-                <i class="lni-envelope"></i>
-                <span class="ml-2 text-lg">info@labschool-unj.sch.id</span>
+              <li class="flex items-center mb-2">
+                <i class="fa-solid fa-envelope"></i>
+                <span class="ml-2">info@labschool-unj.sch.id</span>
               </li>
-              <li class="flex items-center">
-                <i class="lni-map-marker"></i>
-                <span class="ml-2 text-lg">Jl. Contoh No.123, Jakarta</span>
+              <li class="flex items-center mb-2">
+                <i class="fa-solid fa-location-dot"></i>
+                <span class="ml-2">Jl. Raya Cirendeu No.40, Pisangan, Kec. Ciputat Tim., Kota Tangerang Selatan,
+                  Banten 15419</span>
               </li>
             </ul>
           </div>
@@ -50,31 +51,9 @@
           <div class="mb-8 footer-link">
             <h6 class="footer-title">Menu Navigasi</h6>
             <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="javascript:void(0)">Gallery</a></li>
-              <li><a href="javascript:void(0)">Contact</a></li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Menu Tentang Kami -->
-        <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
-          <div class="mb-8 footer-link">
-            <h6 class="footer-title">Tentang Kami</h6>
-            <ul>
-              <li><a href="javascript:void(0)">Visi & Misi</a></li>
-              <li><a href="javascript:void(0)">Sejarah</a></li>
-            </ul>
-          </div>
-        </div>
-
-        {{-- Menu Apresiasi --}}
-        <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
-          <div class="mb-8 footer-link">
-            <h6 class="footer-title">Apresiasi</h6>
-            <ul>
-              <li><a href="javascript:void(0)">Kritik & Saran</a></li>
-              <li><a href="javascript:void(0)">Tim Pengajar</a></li>
+              <li><a href="{{ route('home') }}">Home</a></li>
+              <li><a href="{{ route('alumni') }}">Alumni</a></li>
+              <li><a href="{{ route('grafik') }}">Grafik</a></li>
             </ul>
           </div>
         </div>
