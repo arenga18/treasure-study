@@ -13,6 +13,8 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\DatePicker;
 use Illuminate\Support\Facades\Hash;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\ImageColumn;
 
 class StudentResource extends Resource
 {
@@ -20,7 +22,7 @@ class StudentResource extends Resource
 
     protected static ?string $navigationGroup = 'Users Management';
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-user-group';
 
     public static function form(Form $form): Form
     {
@@ -48,19 +50,14 @@ class StudentResource extends Resource
                     ->imageEditor(),
                 Select::make('gender')
                     ->options([
-                        0 => 'Perempuan',
-                        2 => 'Laki-laki',
+                        'P' => 'Perempuan',
+                        'L' => 'Laki-laki',
                     ])->required(),
                 DatePicker::make('date_of_birth')
                     ->native(false)
                     ->displayFormat('Y-m-d')
                     ->format('Y-m-d')
                     ->required(),
-                Select::make('roles')
-                    ->relationship('roles', 'name')
-                    ->multiple()
-                    ->preload()
-                    ->searchable(),
             ]);
     }
 
@@ -69,7 +66,19 @@ class StudentResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('name')
+                    ->label('Name')
+                    ->sortable(),
+                TextColumn::make('nisn')
+                    ->label('NISN')
+                    ->sortable(),
+                TextColumn::make('email')
+                    ->label('Email')
+                    ->sortable(),
+                ImageColumn::make('photo')
+                    ->searchable()
+                    ->width(60)
+                    ->height(60),
             ])
             ->filters([
                 //

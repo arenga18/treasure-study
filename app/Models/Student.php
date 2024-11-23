@@ -3,13 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Filament\Models\Contracts\FilamentUser;
 use Filament\Panel;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Student extends Authenticatable
 {
-    use HasFactory;
+    use HasApiTokens, HasFactory, Notifiable;
 
     protected $fillable = ['name', 'nisn', 'email', 'password', 'photo', 'gender', 'date_of_birth'];
 
@@ -21,8 +22,13 @@ class Student extends Authenticatable
         'password' => 'hashed',
     ];
 
+    public function alumni()
+    {
+        return $this->hasOne(Alumni::class, 'nisn', 'nisn');
+    }
+
     public function canAccessPanel(Panel $panel): bool
     {
-        return true; // you can add your own logic to access Employee users.
+        return true;
     }
 }

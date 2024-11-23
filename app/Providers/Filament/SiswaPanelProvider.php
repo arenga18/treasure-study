@@ -2,10 +2,13 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Siswa\Resources\Auth\Pages\CustomPage;
+use App\Filament\Siswa\Resources\Dashboard\SiswaDashboard;
+use App\Livewire\StudentProfile;
+use App\Livewire\TracerProfile;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
-use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
@@ -17,6 +20,7 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Joaopaulolndev\FilamentEditProfile\FilamentEditProfilePlugin;
 
 class SiswaPanelProvider extends PanelProvider
 {
@@ -25,17 +29,17 @@ class SiswaPanelProvider extends PanelProvider
         return $panel
             ->id('siswa')
             ->path('siswa')
-            ->login()
+            ->login(CustomPage::class)
             ->authGuard('student')
-            ->passwordReset()
             ->profile()
             ->colors([
                 'primary' => Color::Amber,
             ])
+            ->brandName('Tracer Study')
             ->discoverResources(in: app_path('Filament/Siswa/Resources'), for: 'App\\Filament\\Siswa\\Resources')
             ->discoverPages(in: app_path('Filament/Siswa/Pages'), for: 'App\\Filament\\Siswa\\Pages')
             ->pages([
-                Pages\Dashboard::class,
+                SiswaDashboard::class,
             ])
             ->discoverWidgets(in: app_path('Filament/Siswa/Widgets'), for: 'App\\Filament\\Siswa\\Widgets')
             ->widgets([
@@ -52,6 +56,13 @@ class SiswaPanelProvider extends PanelProvider
                 SubstituteBindings::class,
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
+            ])
+            ->plugins([
+                FilamentEditProfilePlugin::make()
+                    ->setIcon('heroicon-o-user')
+                    ->shouldShowDeleteAccountForm(false)
+                    ->shouldShowEditProfileForm(false)
+                    ->customProfileComponents([StudentProfile::class, TracerProfile::class])
             ])
             ->authMiddleware([
                 Authenticate::class,
