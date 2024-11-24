@@ -19,21 +19,23 @@
           <div id="navbarOne"
             class="absolute left-0 z-30 hidden w-full px-5 py-4 duration-300 bg-white shadow md:opacity-100 md:w-auto md:block top-100 mt-full md:static md:bg-transparent md:shadow-none">
             <ul
-              class="flex flex-col gap-4 items-start md:flex-row md:gap-2 md:items-center mr-auto lg:justify-center md:justify-end navbar-nav">
+              class="flex flex-col gap-1 items-start md:flex-row md:gap-2 md:items-center mr-auto lg:justify-center md:justify-end navbar-nav">
 
               <!-- HOME -->
               <li class="nav-item {{ Route::is('home') ? 'active' : '' }}">
-                <a class="page-scroll font-bold text-sm my-[10px] md:m-0" href="{{ route('home') }}">HOME</a>
+                <a class="page-scroll font-bold text-sm my-[10px] md:text-md md:m-0" href="{{ route('home') }}">HOME</a>
               </li>
 
               <!-- TRACER STUDY -->
               <li class="nav-item {{ Route::is('alumni') ? 'active' : '' }}">
-                <a class="page-scroll font-bold text-sm my-[10px] md:m-0" href="{{ route('alumni') }}">TRACER STUDY</a>
+                <a class="page-scroll font-bold text-sm my-[10px] md:text-md md:m-0" href="{{ route('alumni') }}">TRACER
+                  STUDY</a>
               </li>
 
               <!-- GRAFIK -->
               <li class="nav-item {{ Route::is('grafik') ? 'active' : '' }}">
-                <a class="page-scroll font-bold text-sm my-[10px] md:m-0" href="{{ route('grafik') }}">Grafik</a>
+                <a class="page-scroll font-bold text-sm my-[10px] md:text-md md:m-0"
+                  href="{{ route('grafik') }}">Grafik</a>
               </li>
 
               <!-- LOGIN (dalam menu dropdown di mode mobile) -->
