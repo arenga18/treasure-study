@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('kinerja_semesters', function (Blueprint $table) {
             $table->id();
-            $table->string('nisn');
+            $table->string('nisn')->nullable();
             $table->string('semester')->unique();
             $table->string('ips_terakhir')->nullable();
             $table->string('kendala')->nullable();
