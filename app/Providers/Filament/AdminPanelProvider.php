@@ -34,6 +34,7 @@ class AdminPanelProvider extends PanelProvider
                 'primary' => Color::Blue,
             ])
             ->brandName('Labschool Cirendeu')
+            ->favicon(asset('img/logo.png'))
             ->navigationGroups([
                 'Alumni',
                 'Users Management',
