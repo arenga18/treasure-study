@@ -3,9 +3,8 @@
     <div class="row">
       <div class="w-full">
         <nav class="flex items-center justify-between navbar navbar-expand-md">
-          <!-- Logo -->
-          <a class="mr-4 navbar-brand" href="#">
-            <img src="{{ url('img/logo-nav.png') }}" alt="Logo" width="200" height="90">
+          <a class="mr-4 navbar-brand" href="{{ route('home') }}">
+            <img src="{{ url('img/logo-nav.png') }}" alt="Logo" class="w-[150px] md:w-[200px]">
           </a>
 
           <!-- Tombol Hamburger untuk Mobile -->
@@ -24,20 +23,17 @@
 
               <!-- HOME -->
               <li class="nav-item {{ Route::is('home') ? 'active' : '' }}">
-                <a class="page-scroll font-bold text-gray-700 hover:text-blue-500 md:text-black"
-                  href="{{ route('home') }}">HOME</a>
+                <a class="page-scroll font-bold text-sm my-[10px] md:m-0" href="{{ route('home') }}">HOME</a>
               </li>
 
               <!-- TRACER STUDY -->
               <li class="nav-item {{ Route::is('alumni') ? 'active' : '' }}">
-                <a class="page-scroll font-bold text-gray-700 hover:text-blue-500 md:text-black"
-                  href="{{ route('alumni') }}">TRACER STUDY</a>
+                <a class="page-scroll font-bold text-sm my-[10px] md:m-0" href="{{ route('alumni') }}">TRACER STUDY</a>
               </li>
 
               <!-- GRAFIK -->
               <li class="nav-item {{ Route::is('grafik') ? 'active' : '' }}">
-                <a class="page-scroll font-bold text-gray-700 hover:text-blue-500 md:text-black"
-                  href="{{ route('grafik') }}">GRAFIK</a>
+                <a class="page-scroll font-bold text-sm my-[10px] md:m-0" href="{{ route('grafik') }}">Grafik</a>
               </li>
 
               <!-- LOGIN (dalam menu dropdown di mode mobile) -->
@@ -55,6 +51,7 @@
             <a href="/siswa" class="bg-blue-500 text-white font-bold px-6 py-3 rounded hover:bg-blue-600">
               LOGIN
             </a>
+
           </div>
         </nav>
       </div>

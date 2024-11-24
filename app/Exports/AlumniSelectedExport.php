@@ -29,10 +29,9 @@ class AlumniSelectedExport implements FromCollection, WithMapping, WithHeadings
     public function headings(): array
     {
         return [
-            'No',
+            'NISN',
             'Nama Siswa',
             'Kelas',
-            'Foto',
             'Perguruan Tinggi',
             'Jurusan',
             'Tahun lulus',
@@ -46,7 +45,6 @@ class AlumniSelectedExport implements FromCollection, WithMapping, WithHeadings
             $alumni->nisn,
             $alumni->nama_siswa,
             $alumni->kelas,
-            $alumni->foto,
             $alumni->perguruan_tinggi,
             $alumni->jurusan,
             $alumni->tahun_lulus,

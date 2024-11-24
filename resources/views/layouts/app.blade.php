@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="{{ asset('css/lineicons.css') }}">
+  <script src="https://kit.fontawesome.com/494c64a86b.js" crossorigin="anonymous"></script>
   @vite('resources/css/app.css')
 </head>
 
