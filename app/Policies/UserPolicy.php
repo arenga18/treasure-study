@@ -130,7 +130,6 @@ class UserPolicy
     {
         return $user->can('replicate_user::management');
     }
-
     /**
      * Determine whether the user can reorder.
      *

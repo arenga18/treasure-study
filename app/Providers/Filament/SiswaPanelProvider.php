@@ -33,8 +33,9 @@ class SiswaPanelProvider extends PanelProvider
             ->authGuard('student')
             ->profile()
             ->colors([
-                'primary' => Color::Amber,
+                'primary' => Color::Blue,
             ])
+            ->sidebarCollapsibleOnDesktop()
             ->brandName('Tracer Study')
             ->discoverResources(in: app_path('Filament/Siswa/Resources'), for: 'App\\Filament\\Siswa\\Resources')
             ->discoverPages(in: app_path('Filament/Siswa/Pages'), for: 'App\\Filament\\Siswa\\Pages')
@@ -62,6 +63,7 @@ class SiswaPanelProvider extends PanelProvider
                     ->setIcon('heroicon-o-user')
                     ->shouldShowDeleteAccountForm(false)
                     ->shouldShowEditProfileForm(false)
+                    ->setNavigationGroup('Profile')
                     ->customProfileComponents([StudentProfile::class, TracerProfile::class])
             ])
             ->authMiddleware([

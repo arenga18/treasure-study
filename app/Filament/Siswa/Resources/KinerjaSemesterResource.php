@@ -21,10 +21,29 @@ class KinerjaSemesterResource extends Resource
 {
     protected static ?string $model = KinerjaSemester::class;
 
+    protected static ?string $navigationGroup = 'Tracer Study';
+
     protected static ?string $navigationLabel = "Kinerja Semester";
+
     protected static ?string $pluralLabel = "Kinerja Semester";
 
     protected static ?string $navigationIcon = 'heroicon-o-presentation-chart-line';
+
+    public static function getNavigationBadge(): ?string
+    {
+        if (!auth()->check()) {
+            return null;
+        }
+
+        $user = auth()->user();
+
+        if (empty($user->nisn)) {
+            return null;
+        }
+
+        return static::getModel()::where('nisn', $user->nisn)->count();
+    }
+
 
     public static function form(Form $form): Form
     {

@@ -24,9 +24,16 @@ class StudentResource extends Resource
 {
     protected static ?string $model = Student::class;
 
+    protected static ?int $navigationSort = 2;
+
     protected static ?string $navigationGroup = 'Users Management';
 
     protected static ?string $navigationIcon = 'heroicon-o-user-group';
+
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
 
     public static function form(Form $form): Form
     {
