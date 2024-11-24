@@ -1,5 +1,6 @@
 <?php
 
+use App\Filament\Resources\KinerjaSemesterResource\Pages\ViewKinerjaSemester;
 use App\Http\Controllers\AlumniController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,3 +25,6 @@ Route::get('/alumni', [AlumniController::class, 'index'])->name('alumni');
 Route::get('/grafik', function () {
     return view('pages.grafik');
 })->name('grafik');
+
+// Menggunakan Pages\ViewKinerjaSemester dengan nisn sebagai parameter
+Route::get('/admin/kinerja-semesters/{record}', ViewKinerjaSemester::class)->name('kinerja-semesters.view');

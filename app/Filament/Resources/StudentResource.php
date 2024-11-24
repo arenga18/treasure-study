@@ -3,7 +3,9 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\StudentResource\Pages;
+use App\Imports\StudentImport;
 use App\Models\Student;
+use Filament\Tables\Actions\Action;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -15,6 +17,8 @@ use Filament\Forms\Components\DatePicker;
 use Illuminate\Support\Facades\Hash;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ImageColumn;
+use Maatwebsite\Excel\Facades\Excel;
+use Filament\Notifications\Notification;
 
 class StudentResource extends Resource
 {
@@ -66,11 +70,11 @@ class StudentResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('name')
-                    ->label('Name')
-                    ->sortable(),
                 TextColumn::make('nisn')
                     ->label('NISN')
+                    ->sortable(),
+                TextColumn::make('name')
+                    ->label('Name')
                     ->sortable(),
                 TextColumn::make('email')
                     ->label('Email')
@@ -79,6 +83,26 @@ class StudentResource extends Resource
                     ->searchable()
                     ->width(60)
                     ->height(60),
+            ])
+            ->headerActions([
+                Action::make('import')
+                    ->label('Import Students')
+                    ->action(function (array $data) {
+                        // Menggunakan Excel facade untuk menjalankan import
+                        Excel::import(new StudentImport, storage_path('app/public/' . $data['file']));
+
+                        Notification::make()
+                            ->title('Data berhasil diimpor!')
+                            ->success()
+                            ->send();
+                    })
+                    ->form([
+                        FileUpload::make('file')
+                            ->label('Upload CSV / XLSX')
+                            ->acceptedFileTypes(['text/csv', 'text/plain', 'application/vnd.ms-excel', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'])
+                            ->required(),
+                    ])
+                    ->icon("heroicon-o-document-arrow-down"),
             ])
             ->filters([
                 //

@@ -26,6 +26,8 @@ class AlumniResource extends Resource
 
     protected static ?string $slug = 'alumni';
 
+    protected static ?string $navigationGroup = 'Alumni';
+
     protected static ?string $navigationLabel = 'Alumni';
 
     protected static ?string $modelLabel = 'Alumni';

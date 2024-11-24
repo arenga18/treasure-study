@@ -27,6 +27,11 @@ class Student extends Authenticatable
         return $this->hasOne(Alumni::class, 'nisn', 'nisn');
     }
 
+    public function kinerjaSemester()
+    {
+        return $this->hasOne(KinerjaSemester::class, 'nisn', 'nisn');
+    }
+
     public function canAccessPanel(Panel $panel): bool
     {
         return true;

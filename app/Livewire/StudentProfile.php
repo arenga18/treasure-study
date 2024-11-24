@@ -48,6 +48,7 @@ class StudentProfile extends Component implements HasForms
                     ->description('Update data jika diperlukan')
                     ->schema([
                         TextInput::make('name')
+                            ->label('Nama')
                             ->required()
                             ->maxLength(100),
                         TextInput::make('nisn')
@@ -63,11 +64,13 @@ class StudentProfile extends Component implements HasForms
                             ->image()
                             ->imageEditor(),
                         Select::make('gender')
+                            ->label('Jenis Kelamin')
                             ->options([
                                 'P' => 'Perempuan',
                                 'L' => 'Laki-laki',
                             ])->required(),
                         DatePicker::make('date_of_birth')
+                            ->label(label: 'Tanggal Lahir')
                             ->native(false)
                             ->displayFormat('Y-m-d')
                             ->format('Y-m-d')
