@@ -21,8 +21,6 @@ $(function () {
 
         $(".navbar-collapse").toggleClass("show");
     });
-
-    // Close navbar-collapse and reset background when a link is clicked
     $(".navbar-nav a").on("click", function () {
         $(".navbar-collapse").removeClass("show");
     });

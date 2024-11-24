@@ -16,9 +16,17 @@ use Illuminate\Support\Facades\Hash;
 class UserManagementResource extends Resource
 {
     protected static ?string $model = User::class;
+
+    protected static ?int $navigationSort = 1;
+
     protected static ?string $navigationGroup = 'Users Management';
 
     protected static ?string $navigationIcon = 'heroicon-o-users';
+
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
 
     public static function form(Form $form): Form
     {

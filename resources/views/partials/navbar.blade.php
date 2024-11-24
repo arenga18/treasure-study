@@ -1,5 +1,5 @@
 <div class="navigation">
-  <div class="container">
+  <div class="container mx-auto px-4">
     <div class="row">
       <div class="w-full">
         <nav class="flex items-center justify-between navbar navbar-expand-md">
@@ -15,10 +15,11 @@
             <span class="toggler-icon"></span>
           </button>
 
-          <!------------------------------Navbar---------------------------------->
+          <!-- Navbar -->
           <div id="navbarOne"
-            class="absolute left-0 z-30 hidden w-full px-5 py-3 duration-300 bg-white shadow md:opacity-100 md:w-auto md:block top-100 mt-full md:static md:bg-transparent md:shadow-none">
-            <ul class="items-center content-start mr-auto lg:justify-center md:justify-end navbar-nav md:flex">
+            class="absolute left-0 z-30 hidden w-full px-5 py-4 duration-300 bg-white shadow md:opacity-100 md:w-auto md:block top-100 mt-full md:static md:bg-transparent md:shadow-none">
+            <ul
+              class="flex flex-col gap-4 items-start md:flex-row md:gap-2 md:items-center mr-auto lg:justify-center md:justify-end navbar-nav">
 
               <!-- HOME -->
               <li class="nav-item {{ Route::is('home') ? 'active' : '' }}">
@@ -35,20 +36,22 @@
                 <a class="page-scroll font-bold text-sm my-[10px] md:m-0" href="{{ route('grafik') }}">Grafik</a>
               </li>
 
+              <!-- LOGIN (dalam menu dropdown di mode mobile) -->
+              <li class="nav-item md:hidden text-center w-full">
+                <a href="/siswa"
+                  class="block bg-blue-500 !text-white font-bold !px-6 !py-2 rounded mx-auto mb-4 md:m-0 hover:bg-blue-600">
+                  LOGIN
+                </a>
+              </li>
             </ul>
           </div>
 
-          {{-- SOCIAL MEDIA --}}
-          <div class="items-center justify-end hidden navbar-social lg:flex">
-            <ul class="flex footer-social">
-              <li><a target="_blank" href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-              <li><a href="https://www.youtube.com/@labschoolcirendeuofficial4329" target="_blank"><i
-                    class="fa-brands fa-youtube"></i></a></li>
-              <li><a href="https://www.instagram.com/labschoolcirendeu.official/" target="_blank"><i
-                    class="fa-brands fa-instagram"></i></a></li>
-              <li><a href="https://www.linkedin.com/company/labschool-cirendeu/" target="_blank"><i
-                    class="fa-brands fa-linkedin"></i></a></li>
-            </ul>
+          <!-- LOGIN (di sebelah kanan navbar untuk mode desktop) -->
+          <div class="hidden md:block md:ms-5">
+            <a href="/siswa" class="bg-blue-500 text-white font-bold px-6 py-3 rounded hover:bg-blue-600">
+              LOGIN
+            </a>
+
           </div>
         </nav>
       </div>

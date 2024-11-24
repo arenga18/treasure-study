@@ -21,5 +21,10 @@ class Alumni extends Model
         'sistem_seleksi',
     ];
 
+    public function student()
+    {
+        return $this->belongsTo(Student::class, 'nisn', 'nisn');
+    }
+
     use HasFactory;
 }

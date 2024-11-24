@@ -19,9 +19,6 @@ use Filament\Tables\Table;
 use Filament\Tables\Actions\Action;
 use Filament\Notifications\Notification;
 use Filament\Tables\Actions\BulkAction;
-use Filament\Tables\Filters\Filter;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Contracts\Support\Htmlable;
 
 class AlumniResource extends Resource
 {
@@ -29,14 +26,15 @@ class AlumniResource extends Resource
 
     protected static ?string $slug = 'alumni';
 
+    protected static ?string $navigationGroup = 'Alumni';
+
     protected static ?string $navigationLabel = 'Alumni';
 
     protected static ?string $modelLabel = 'Alumni';
 
     protected static ?string $pluralLabel = 'Alumni';
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-
+    protected static ?string $navigationIcon = 'heroicon-o-academic-cap';
 
     public static function form(Form $form): Form
     {

@@ -2,11 +2,13 @@
 
 namespace App\Providers\Filament;
 
-use App\Models\User;
+use App\Filament\Siswa\Resources\Auth\Pages\CustomPage;
+use App\Filament\Siswa\Resources\Dashboard\SiswaDashboard;
+use App\Livewire\StudentProfile;
+use App\Livewire\TracerProfile;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
-use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
@@ -19,33 +21,28 @@ use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Joaopaulolndev\FilamentEditProfile\FilamentEditProfilePlugin;
-use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
 
-class AdminPanelProvider extends PanelProvider
+class SiswaPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {
         return $panel
-            ->default()
-            ->id('admin')
-            ->path('admin')
-            ->login()
+            ->id('siswa')
+            ->path('siswa')
+            ->login(CustomPage::class)
+            ->authGuard('student')
+            ->profile()
             ->colors([
                 'primary' => Color::Blue,
             ])
-            ->brandName('Labschool Cirendeu')
-            ->navigationGroups([
-                'Alumni',
-                'Users Management',
-                'Filament Shield',
-                'Profile',
+            ->sidebarCollapsibleOnDesktop()
+            ->brandName('Tracer Study')
+            ->discoverResources(in: app_path('Filament/Siswa/Resources'), for: 'App\\Filament\\Siswa\\Resources')
+            ->discoverPages(in: app_path('Filament/Siswa/Pages'), for: 'App\\Filament\\Siswa\\Pages')
+            ->pages([
+                SiswaDashboard::class,
             ])
-            ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
-            ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
-            ->pages(pages: [
-                Pages\Dashboard::class,
-            ])
-            ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
+            ->discoverWidgets(in: app_path('Filament/Siswa/Widgets'), for: 'App\\Filament\\Siswa\\Widgets')
             ->widgets([
                 Widgets\AccountWidget::class,
                 Widgets\FilamentInfoWidget::class,
@@ -62,12 +59,12 @@ class AdminPanelProvider extends PanelProvider
                 DispatchServingFilamentEvent::class,
             ])
             ->plugins([
-                FilamentShieldPlugin::make(),
                 FilamentEditProfilePlugin::make()
                     ->setIcon('heroicon-o-user')
-                    ->setNavigationGroup('Profile')
                     ->shouldShowDeleteAccountForm(false)
-
+                    ->shouldShowEditProfileForm(false)
+                    ->setNavigationGroup('Profile')
+                    ->customProfileComponents([StudentProfile::class, TracerProfile::class])
             ])
             ->authMiddleware([
                 Authenticate::class,
