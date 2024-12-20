@@ -4,6 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta content="" name="keywords" />
+  <meta content="" name="description" />
   <title>@yield('title', 'Default Title')</title>
   <link rel="icon" href="{{ asset('img/logo icon.png') }}" type="image/x-icon">
   <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.min.css">
