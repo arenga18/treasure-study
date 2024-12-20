@@ -53,7 +53,7 @@
             <ul>
               <li><a href="{{ route('home') }}">Home</a></li>
               <li><a href="{{ route('alumni') }}">Alumni</a></li>
-              <li><a href="{{ route('lokasi') }}">Grafik</a></li>
+              <li><a href="{{ route('grafik') }}">Grafik</a></li>
             </ul>
           </div>
         </div>
