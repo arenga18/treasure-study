@@ -52,7 +52,7 @@
             <h6 class="footer-title">Menu Navigasi</h6>
             <ul>
               <li><a href="{{ route('home') }}">Home</a></li>
-              <li><a href="{{ route('tenaga.index') }}">Alumni</a></li>
+              <li><a href="{{ route('alumni') }}">Alumni</a></li>
               <li><a href="{{ route('lokasi') }}">Grafik</a></li>
             </ul>
           </div>
