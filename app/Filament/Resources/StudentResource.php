@@ -69,6 +69,10 @@ class StudentResource extends Resource
                     ->displayFormat('Y-m-d')
                     ->format('Y-m-d')
                     ->required(),
+                TextInput::make('gen')
+                    ->label('Tahun Angkatan')
+                    ->required()
+                    ->maxLength(50),
             ]);
     }
 
@@ -90,6 +94,10 @@ class StudentResource extends Resource
                     ->searchable()
                     ->width(60)
                     ->height(60),
+                TextColumn::make('gen')
+                    ->label('Tahun Angkatan')
+                    ->sortable()
+                    ->searchable()
             ])
             ->headerActions([
                 Action::make('import')

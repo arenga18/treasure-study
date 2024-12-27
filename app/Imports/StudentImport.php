@@ -38,6 +38,7 @@ class StudentImport implements ToCollection
                 'photo' => $row[3],
                 'gender' => $row[4],
                 'date_of_birth' => $date_of_birth,
+                'gen' => $row[6],
                 'password' => $password,   // Password yang sudah di-generate
             ]);
         }
