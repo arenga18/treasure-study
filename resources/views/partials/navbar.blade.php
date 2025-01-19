@@ -41,7 +41,7 @@
               <!-- LOGIN (dalam menu dropdown di mode mobile) -->
               <li class="nav-item md:hidden text-center w-full">
                 <a href="/siswa"
-                  class="block bg-blue-500 !text-white font-bold !px-6 !py-2 rounded mx-auto mb-4 md:m-0 hover:bg-blue-600">
+                  class="block bg-blue-500 !text-white text-sm md:text-md font-bold !px-4 !py-2 rounded mx-auto mb-4 md:m-0 hover:bg-blue-600">
                   LOGIN
                 </a>
               </li>
@@ -50,7 +50,8 @@
 
           <!-- LOGIN (di sebelah kanan navbar untuk mode desktop) -->
           <div class="hidden md:block md:ms-5">
-            <a href="/siswa" class="bg-blue-500 text-white font-bold px-6 py-3 rounded hover:bg-blue-600">
+            <a href="/siswa"
+              class="bg-blue-500 text-white text-sm md:text-md font-bold px-4 py-3 rounded hover:bg-blue-600">
               LOGIN
             </a>
 
