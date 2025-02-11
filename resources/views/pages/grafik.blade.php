@@ -12,20 +12,12 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
           {{-- Grafik 2023 --}}
           <div class="relative group">
-            <h2 class="text-xl mb-6 font-bold md:text-2xl text-center">
-              Lulusan Angkatan 1 GANATARA <br>
-              SMA Labschool Cirendeu 2023
-            </h2>
-            <img src="{{ asset('img/grafik/2023.png') }}" class="w-full h-[320px] lg:h-[460px] bg-auto rounded-lg shadow">
+            <img src="{{ asset('img/grafik/2023.png') }}" class="w-full bg-auto rounded-lg shadow">
           </div>
 
           {{-- Grafik 2024 --}}
           <div class="relative group">
-            <h2 class="text-xl mb-6 font-bold md:text-2xl text-center">
-              Lulusan Angkatan 2 DARTANARA <br>
-              SMA Labschool Cirendeu 2024
-            </h2>
-            <img src="{{ asset('img/grafik/2024.png') }}" class="w-full h-[320px] lg:h-[460px] bg-auto rounded-lg shadow">
+            <img src="{{ asset('img/grafik/2024.png') }}" class="w-full bg-auto rounded-lg shadow">
           </div>
         </div>
       </div>
