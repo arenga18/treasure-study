@@ -19,6 +19,7 @@ class Alumni extends Model
         'jurusan',
         'tahun_lulus',
         'sistem_seleksi',
+        'jenis_seleksi'
     ];
 
     public function student()

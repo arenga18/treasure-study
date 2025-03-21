@@ -11,11 +11,19 @@ use Filament\Forms\Components\FileUpload;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ImageColumn;
 use App\Imports\AlumniImport;
+use App\Models\JenisSeleksi;
+use App\Models\Jurusan;
+use App\Models\Kelas;
+use App\Models\PerguruanTinggi;
+use App\Models\SistemSeleksi;
+use App\Models\TahunLulus;
 use Maatwebsite\Excel\Facades\Excel;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Section;
 use Filament\Tables\Actions\Action;
 use Filament\Notifications\Notification;
 use Filament\Tables\Actions\BulkAction;
@@ -40,17 +48,38 @@ class AlumniResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('nisn')->required(),
+                TextInput::make('nisn')
+                    ->label('NISN')
+                    ->required(),
                 TextInput::make('nama_siswa')->required(),
-                TextInput::make('kelas')->required(),
+                Select::make('kelas')
+                    ->options(options: Kelas::all()->pluck('nama', 'nama'))->required(),
                 FileUpload::make('foto')
                     ->image()
                     ->imageEditor(),
-                TextInput::make('perguruan_tinggi')->required(),
-                TextInput::make('jurusan')->required(),
-                TextInput::make('tahun_lulus')
-                    ->required(),
-                TextInput::make('sistem_seleksi')->required()
+                Select::make('perguruan_tinggi')
+                    ->options(options: PerguruanTinggi::all()->pluck('nama', 'nama'))->required(),
+                Select::make('jurusan')
+                    ->options(options: Jurusan::all()
+                        ->pluck('nama', 'nama'))->required(),
+                Select::make('tahun_lulus')
+                    ->options(options: TahunLulus::all()
+                        ->pluck('tahun', 'tahun'))->required(),
+                Section::make()
+                    ->schema([
+                        Select::make('sistem_seleksi')
+                            ->label('Sistem Seleksi')
+                            ->options(options: SistemSeleksi::all()
+                                ->pluck('jenis_seleksi', 'jenis_seleksi'))
+                            ->required()
+                            ->reactive(),
+                        Select::make('jenis_seleksi')
+                            ->label('Jenis Seleksi')
+                            ->options(options: JenisSeleksi::all()
+                                ->pluck('nama', 'nama'))
+                            ->visible(fn($get) => $get('sistem_seleksi') === 'MANDIRI')
+                            ->required(),
+                    ]),
             ]);
     }
 
@@ -91,7 +120,9 @@ class AlumniResource extends Resource
                         $perPage = 10;
                         return (($currentPage - 1) * $perPage) + ($rowLoop->index + 1);
                     }),
-                TextColumn::make('nisn')->searchable(),
+                TextColumn::make('nisn')
+                    ->label('NISN')
+                    ->searchable(),
                 TextColumn::make('nama_siswa')->searchable(),
                 TextColumn::make('kelas')->searchable(),
                 ImageColumn::make('foto')
@@ -102,6 +133,7 @@ class AlumniResource extends Resource
                 TextColumn::make('jurusan')->searchable(),
                 TextColumn::make('tahun_lulus')->searchable(),
                 TextColumn::make('sistem_seleksi')->searchable(),
+                TextColumn::make('jenis_seleksi')->searchable(),
             ])
             ->filters([])
             ->actions([

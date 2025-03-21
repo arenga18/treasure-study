@@ -21,6 +21,7 @@ return new class extends Migration
             $table->text('jurusan')->nullable();
             $table->text('tahun_lulus')->nullable();
             $table->text('sistem_seleksi')->nullable();
+            $table->text('jenis_seleksi')->nullable();
             $table->timestamps();
         });
     }
