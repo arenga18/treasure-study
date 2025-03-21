@@ -20,6 +20,11 @@ class TahunLulusResource extends Resource
     protected static ?string $modelLabel = 'Tahun Lulus';
 
     protected static ?string $pluralLabel = 'Tahun Lulus';
+
+    protected static ?string $navigationGroup = 'Master Data';
+
+    protected static ?string $navigationLabel = 'Tahun Lulus';
+
     protected static ?string $model = TahunLulus::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';

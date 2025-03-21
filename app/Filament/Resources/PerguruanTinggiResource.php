@@ -22,6 +22,10 @@ class PerguruanTinggiResource extends Resource
 
     protected static ?string $pluralLabel = 'Perguruan Tinggi';
 
+    protected static ?string $navigationGroup = 'Master Data';
+
+    protected static ?string $navigationLabel = 'Perguruan Tinggi';
+
     protected static ?string $model = PerguruanTinggi::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';

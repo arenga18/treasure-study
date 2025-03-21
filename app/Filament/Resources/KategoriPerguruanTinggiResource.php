@@ -20,6 +20,11 @@ class KategoriPerguruanTinggiResource extends Resource
     protected static ?string $modelLabel = 'Kategori Perguruan Tinggi';
 
     protected static ?string $pluralLabel = 'Kategori Perguruan Tinggi';
+
+    protected static ?string $navigationGroup = 'Master Data';
+
+    protected static ?string $navigationLabel = 'Kategori Perguruan Tinggi';
+
     protected static ?string $model = KategoriPerguruanTinggi::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';

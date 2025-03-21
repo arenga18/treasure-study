@@ -20,6 +20,11 @@ class SistemSeleksiResource extends Resource
     protected static ?string $modelLabel = 'Sistem Seleksi';
 
     protected static ?string $pluralLabel = 'Sistem Seleksi';
+
+    protected static ?string $navigationGroup = 'Master Data';
+
+    protected static ?string $navigationLabel = 'Sistem Seleksi';
+
     protected static ?string $model = SistemSeleksi::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';

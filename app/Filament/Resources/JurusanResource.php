@@ -20,6 +20,11 @@ class JurusanResource extends Resource
     protected static ?string $modelLabel = 'Jurusan';
 
     protected static ?string $pluralLabel = 'Jurusan';
+
+    protected static ?string $navigationGroup = 'Master Data';
+
+    protected static ?string $navigationLabel = 'Jurusan';
+
     protected static ?string $model = Jurusan::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';

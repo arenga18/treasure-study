@@ -20,6 +20,11 @@ class JenisSeleksiResource extends Resource
     protected static ?string $modelLabel = 'Jenis Seleksi';
 
     protected static ?string $pluralLabel = 'Jenis Seleksi';
+
+    protected static ?string $navigationGroup = 'Master Data';
+
+    protected static ?string $navigationLabel = 'Jenis Seleksi';
+
     protected static ?string $model = JenisSeleksi::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
