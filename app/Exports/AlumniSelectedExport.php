@@ -36,6 +36,7 @@ class AlumniSelectedExport implements FromCollection, WithMapping, WithHeadings
             'Jurusan',
             'Tahun lulus',
             'Sistem Seleksi',
+            'Jenis Seleksi',
         ];
     }
 
@@ -49,6 +50,7 @@ class AlumniSelectedExport implements FromCollection, WithMapping, WithHeadings
             $alumni->jurusan,
             $alumni->tahun_lulus,
             $alumni->sistem_seleksi,
+            $alumni->jenis_seleksi,
         ];
     }
 }

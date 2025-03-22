@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('jurusan', function (Blueprint $table) {
             $table->id();
+            $table->string('perguruan_tinggi')->nullable()->index();
             $table->string('nama')->nullable();
             $table->timestamps();
         });

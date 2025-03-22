@@ -51,20 +51,34 @@ class AlumniResource extends Resource
                 TextInput::make('nisn')
                     ->label('NISN')
                     ->required(),
-                TextInput::make('nama_siswa')->required(),
+
+                TextInput::make('nama_siswa')
+                    ->required(),
+
                 Select::make('kelas')
-                    ->options(options: Kelas::all()->pluck('nama', 'nama'))->required(),
+                    ->options(Kelas::all()->pluck('nama', 'nama'))
+                    ->required(),
+
                 FileUpload::make('foto')
                     ->image()
                     ->imageEditor(),
+
                 Select::make('perguruan_tinggi')
-                    ->options(options: PerguruanTinggi::all()->pluck('nama', 'nama'))->required(),
+                    ->options(PerguruanTinggi::all()->pluck('nama', 'nama'))
+                    ->required()
+                    ->reactive(),
+
                 Select::make('jurusan')
-                    ->options(options: Jurusan::all()
-                        ->pluck('nama', 'nama'))->required(),
+                    ->options(fn($get) => $get('perguruan_tinggi')
+                        ? Jurusan::where('perguruan_tinggi', $get('perguruan_tinggi'))->pluck('nama', 'nama')
+                        : [])
+                    ->required()
+                    ->reactive(),
+
                 Select::make('tahun_lulus')
-                    ->options(options: TahunLulus::all()
-                        ->pluck('tahun', 'tahun'))->required(),
+                    ->options(TahunLulus::all()->pluck('tahun', 'tahun'))
+                    ->required(),
+
                 Section::make()
                     ->schema([
                         Select::make('sistem_seleksi')
@@ -75,11 +89,13 @@ class AlumniResource extends Resource
                             ->reactive(),
                         Select::make('jenis_seleksi')
                             ->label('Jenis Seleksi')
-                            ->options(options: JenisSeleksi::all()
-                                ->pluck('nama', 'nama'))
+                            ->options(fn($get) => $get('perguruan_tinggi')
+                                ? JenisSeleksi::where('perguruan_tinggi', $get('perguruan_tinggi'))->pluck('nama', 'nama')
+                                : [])
                             ->visible(fn($get) => $get('sistem_seleksi') === 'MANDIRI')
                             ->required(),
                     ]),
+
             ]);
     }
 

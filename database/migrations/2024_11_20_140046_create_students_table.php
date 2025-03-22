@@ -17,10 +17,12 @@ return new class extends Migration
             $table->string('nisn')->unique()->nullable();
             $table->string('email')->unique()->nullable();
             $table->string('password')->nullable();
-            $table->date('date_of_birth')
-                ->nullable();
             $table->text('photo')->nullable();
             $table->char('gender')->nullable();
+            $table->date('date_of_birth')
+                ->nullable();
+            $table->string('gen')
+                ->nullable();
             $table->timestamps();
         });
     }

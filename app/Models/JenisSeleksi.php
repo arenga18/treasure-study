@@ -10,7 +10,14 @@ class JenisSeleksi extends Model
     protected $table = 'jenis_seleksi';
 
     protected $fillable = [
-        'nama'
+        'nama',
+        'perguruan_tinggi',
     ];
+
+    public function perguruanTinggi()
+    {
+        return $this->belongsTo(PerguruanTinggi::class, 'perguruan_tinggi');
+    }
+
     use HasFactory;
 }

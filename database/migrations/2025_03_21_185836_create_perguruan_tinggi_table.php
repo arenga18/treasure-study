@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('perguruan_tinggi', function (Blueprint $table) {
             $table->id();
+            $table->string('kategori_pt')->nullable()->index();
             $table->string('nama')->nullable();
             $table->timestamps();
         });

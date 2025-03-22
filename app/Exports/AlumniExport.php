@@ -32,10 +32,12 @@ class AlumniExport implements FromCollection, WithMapping, WithHeadings
             'NISN',
             'Nama Siswa',
             'Kelas',
+            'Foto',
             'Perguruan Tinggi',
             'Jurusan',
             'Tahun lulus',
             'Sistem Seleksi',
+            'Jenis Seleksi',
         ];
     }
 
@@ -45,10 +47,12 @@ class AlumniExport implements FromCollection, WithMapping, WithHeadings
             $alumni->nisn,
             $alumni->nama_siswa,
             $alumni->kelas,
+            $alumni->foto,
             $alumni->perguruan_tinggi,
             $alumni->jurusan,
             $alumni->tahun_lulus,
             $alumni->sistem_seleksi,
+            $alumni->jenis_seleksi,
         ];
     }
 }

@@ -13,7 +13,6 @@ class StudentImport implements ToCollection
     /**
      * @param Collection $collection
      */
-
     public function collection(Collection $collection)
     {
         // Menghapus baris pertama yang biasanya adalah header
@@ -30,17 +29,19 @@ class StudentImport implements ToCollection
                 $password = Hash::make('defaultpassword');
             }
 
-            // Simpan data siswa, termasuk password yang baru
-            Student::create([
-                'name' => $row[0],
-                'nisn' => $row[1],
-                'email' => $row[2],
-                'photo' => $row[3],
-                'gender' => $row[4],
-                'date_of_birth' => $date_of_birth,
-                'gen' => $row[6],
-                'password' => $password,   // Password yang sudah di-generate
-            ]);
+            // Update atau buat data siswa berdasarkan NISN
+            Student::updateOrCreate(
+                ['nisn' => $row[1]], // Kunci unik untuk pencocokan data
+                [
+                    'name' => $row[0],
+                    'email' => $row[2],
+                    'photo' => $row[3],
+                    'gender' => $row[4],
+                    'date_of_birth' => $date_of_birth,
+                    'gen' => $row[6],
+                    'password' => $password,   // Password yang sudah di-generate
+                ]
+            );
         }
     }
 }

@@ -4,6 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\PerguruanTinggi;
+use App\Models\JenisSeleksi;
+use App\Models\Jurusan;
 
 class Alumni extends Model
 {
@@ -26,6 +29,18 @@ class Alumni extends Model
     {
         return $this->belongsTo(Student::class, 'nisn', 'nisn');
     }
+
+    public function perguruanTinggi()
+    {
+        return $this->belongsTo(PerguruanTinggi::class, 'perguruan_tinggi');
+    }
+
+    public function jenisSeleksi()
+    {
+        return $this->belongsTo(JenisSeleksi::class, 'jenis_seleksi');
+    }
+
+
 
     use HasFactory;
 }

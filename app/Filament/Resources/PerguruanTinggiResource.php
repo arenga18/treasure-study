@@ -5,12 +5,14 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\PerguruanTinggiResource\Pages;
 use App\Filament\Resources\PerguruanTinggiResource\RelationManagers;
 use App\Models\PerguruanTinggi;
+use App\Models\KategoriPerguruanTinggi;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -34,17 +36,13 @@ class PerguruanTinggiResource extends Resource
     {
         return $form
             ->schema([
+                Select::make('kategori_pt')
+                    ->label("Kategori Perguruan Tinggi")
+                    ->options(fn() => KategoriPerguruanTinggi::pluck('nama', 'nama')),
                 TextInput::make('nama')
+                    ->label("Nama Perguruan Tinggi")
                     ->required()
                     ->maxLength(255),
-                // Select::make('kategori_pt')
-                //     ->label('Kategori Perguruan Tinggi')
-                //     ->options([
-                //         'PTN' => 'PTN',
-                //         'PTS' => 'PTS',
-                //         'PTLN' => 'PTLN'
-                //     ])
-                //     ->required()
             ]);
     }
 
@@ -52,6 +50,7 @@ class PerguruanTinggiResource extends Resource
     {
         return $table
             ->columns([
+                TextColumn::make('kategori_pt')->searchable(),
                 TextColumn::make('nama')->searchable(),
             ])
             ->filters([

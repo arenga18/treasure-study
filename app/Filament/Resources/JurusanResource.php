@@ -5,12 +5,14 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\JurusanResource\Pages;
 use App\Filament\Resources\JurusanResource\RelationManagers;
 use App\Models\Jurusan;
+use App\Models\PerguruanTinggi;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -33,9 +35,13 @@ class JurusanResource extends Resource
     {
         return $form
             ->schema([
+                Select::make('perguruan_tinggi')
+                    ->label("Perguruan Tinggi")
+                    ->options(fn() => PerguruanTinggi::pluck('nama', 'nama')),
                 TextInput::make('nama')
+                    ->label('Jurusan')
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(255)
             ]);
     }
 
@@ -43,6 +49,7 @@ class JurusanResource extends Resource
     {
         return $table
             ->columns([
+                TextColumn::make('perguruan_tinggi')->searchable(),
                 TextColumn::make('nama')->searchable(),
             ])
             ->filters([
