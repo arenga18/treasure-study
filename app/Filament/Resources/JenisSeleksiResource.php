@@ -51,6 +51,7 @@ class JenisSeleksiResource extends Resource
                 TextColumn::make('perguruan_tinggi')->searchable(),
                 TextColumn::make('nama')->searchable(),
             ])
+            ->defaultSort('updated_at', 'desc')
             ->filters([
                 //
             ])

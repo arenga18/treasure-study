@@ -45,6 +45,7 @@ class TahunLulusResource extends Resource
             ->columns([
                 TextColumn::make('tahun')->searchable(),
             ])
+            ->defaultSort('updated_at', 'desc')
             ->filters([
                 //
             ])

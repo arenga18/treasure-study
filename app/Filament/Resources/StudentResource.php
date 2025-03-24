@@ -119,6 +119,7 @@ class StudentResource extends Resource
                     ])
                     ->icon("heroicon-o-document-arrow-down"),
             ])
+            ->defaultSort('updated_at', 'desc')
             ->filters([
                 //
             ])

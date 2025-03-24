@@ -45,6 +45,7 @@ class SistemSeleksiResource extends Resource
             ->columns([
                 TextColumn::make('jenis_seleksi')->searchable(),
             ])
+            ->defaultSort('updated_at', 'desc')
             ->filters([
                 //
             ])

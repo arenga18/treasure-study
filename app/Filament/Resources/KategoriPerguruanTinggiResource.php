@@ -45,6 +45,7 @@ class KategoriPerguruanTinggiResource extends Resource
             ->columns([
                 TextColumn::make('nama')->searchable(),
             ])
+            ->defaultSort('updated_at', 'desc')
             ->filters([
                 //
             ])

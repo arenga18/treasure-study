@@ -67,6 +67,7 @@ class UserManagementResource extends Resource
                     ->label('Role')
                     ->sortable(),
             ])
+            ->defaultSort('updated_at', 'desc')
             ->filters([
                 // Add any filters here
             ])

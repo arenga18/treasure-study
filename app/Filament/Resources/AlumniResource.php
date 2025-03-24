@@ -151,6 +151,7 @@ class AlumniResource extends Resource
                 TextColumn::make('sistem_seleksi')->searchable(),
                 TextColumn::make('jenis_seleksi')->searchable(),
             ])
+            ->defaultSort('updated_at', 'desc')
             ->filters([])
             ->actions([
                 Tables\Actions\EditAction::make(),

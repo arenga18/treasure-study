@@ -53,6 +53,7 @@ class PerguruanTinggiResource extends Resource
                 TextColumn::make('kategori_pt')->searchable(),
                 TextColumn::make('nama')->searchable(),
             ])
+            ->defaultSort('updated_at', 'desc')
             ->filters([
                 //
             ])

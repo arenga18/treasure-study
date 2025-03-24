@@ -165,8 +165,8 @@ class KinerjaSemesterResource extends Resource
                             'progress' => $filledSemesters
                         ];
                     })
-
             ])
+            ->defaultSort('updated_at', 'desc')
             ->filters([
                 //
             ])
