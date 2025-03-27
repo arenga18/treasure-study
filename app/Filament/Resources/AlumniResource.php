@@ -66,6 +66,7 @@ class AlumniResource extends Resource
                 Select::make('perguruan_tinggi')
                     ->options(PerguruanTinggi::all()->pluck('nama', 'nama'))
                     ->required()
+                    ->searchable()
                     ->reactive(),
 
                 Select::make('jurusan')
@@ -73,6 +74,7 @@ class AlumniResource extends Resource
                         ? Jurusan::where('perguruan_tinggi', $get('perguruan_tinggi'))->pluck('nama', 'nama')
                         : [])
                     ->required()
+                    ->searchable()
                     ->reactive(),
 
                 Select::make('tahun_lulus')

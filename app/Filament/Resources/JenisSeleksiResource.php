@@ -37,7 +37,8 @@ class JenisSeleksiResource extends Resource
             ->schema([
                 Select::make('perguruan_tinggi')
                     ->label("Perguruan Tinggi")
-                    ->options(fn() => PerguruanTinggi::pluck('nama', 'nama')),
+                    ->options(fn() => PerguruanTinggi::pluck('nama', 'nama'))
+                    ->searchable(),
                 TextInput::make('nama')
                     ->required()
                     ->maxLength(255),
