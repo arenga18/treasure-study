@@ -42,7 +42,6 @@
         },
         options: {
           responsive: false,
-          rotation: 90, // 🔁 Rotasi 90 derajat (putar ke kanan)
           plugins: {
             legend: {
               position: 'bottom'
