@@ -42,6 +42,7 @@
         },
         options: {
           responsive: false,
+          rotation: Math.PI / 2, // 🔁 Rotasi 90 derajat (putar ke kanan)
           plugins: {
             legend: {
               position: 'bottom'
@@ -51,7 +52,7 @@
               formatter: (value, context) => {
                 const sum = context.chart.data.datasets[0].data.reduce((a, b) => a + b, 0);
                 const percentage = ((value / sum) * 100).toFixed(1) + '%';
-                return value + ' (' + percentage + ')'; // <-- Jumlah + Persentase
+                return value + ' (' + percentage + ')';
               },
               anchor: 'center',
               align: 'center',
@@ -66,6 +67,7 @@
       });
     @endforeach
   </script>
+
 
 
 
