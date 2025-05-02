@@ -30,7 +30,7 @@
   <script>
     @foreach ($groupedData as $tahun => $dataPerTahun)
       new Chart(document.getElementById('chart-{{ $tahun }}'), {
-        type: 'doughnut',
+        type: 'pie',
         data: {
           labels: {!! json_encode($dataPerTahun->pluck('kategori_pt')) !!},
           datasets: [{
