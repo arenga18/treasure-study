@@ -13,9 +13,9 @@
         <label for="tahunLulusFilter" class="block text-md text-gray-700 mb-3">Filter Tahun Lulus:</label>
         <select id="tahunLulusFilter"
           class="block w-full p-2 border text-md md:text-xl border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-transparent md:mb-10">
-          @foreach ($tahunAngkatan as $tahun => $angkatan)
+          @foreach ($alumnis->pluck('tahun_lulus')->unique() as $tahun)
             <option value="{{ $tahun }}" class="text-gray-900">
-              {{ $tahun }} - {{ $angkatan }}
+              {{ $tahun }} -
             </option>
           @endforeach
         </select>

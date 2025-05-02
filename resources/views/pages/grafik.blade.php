@@ -27,11 +27,10 @@
       </div>
     </section>
   </div>
-
   <script>
     @foreach ($groupedData as $tahun => $dataPerTahun)
       new Chart(document.getElementById('chart-{{ $tahun }}'), {
-        type: 'pie',
+        type: 'doughnut',
         data: {
           labels: {!! json_encode($dataPerTahun->pluck('kategori_pt')) !!},
           datasets: [{
@@ -51,10 +50,10 @@
               color: '#fff',
               formatter: (value, context) => {
                 const sum = context.chart.data.datasets[0].data.reduce((a, b) => a + b, 0);
-                const percentage = (value * 100 / sum).toFixed(1) + '%';
-                return percentage;
+                const percentage = ((value / sum) * 100).toFixed(1) + '%';
+                return value + ' (' + percentage + ')'; // <-- Jumlah + Persentase
               },
-              anchor: 'center', // Posisikan di tengah irisan
+              anchor: 'center',
               align: 'center',
               font: {
                 weight: 'bold',
@@ -67,6 +66,7 @@
       });
     @endforeach
   </script>
+
 
 
 @endsection
