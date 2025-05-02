@@ -41,6 +41,11 @@ class Alumni extends Model
     }
 
 
+    public function angkatan()
+    {
+        return $this->belongsTo(TahunLulus::class, 'tahun_lulus', 'tahun');
+    }
+
 
     use HasFactory;
 }

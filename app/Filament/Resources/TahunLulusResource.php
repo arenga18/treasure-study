@@ -36,6 +36,8 @@ class TahunLulusResource extends Resource
                 TextInput::make('tahun')
                     ->required()
                     ->maxLength(255),
+                TextInput::make('nama_angkatan')
+                    ->maxLength(255),
             ]);
     }
 
@@ -44,6 +46,7 @@ class TahunLulusResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('tahun')->searchable(),
+                TextColumn::make('nama_angkatan')->searchable(),
             ])
             ->defaultSort('updated_at', 'desc')
             ->filters([

@@ -10,7 +10,8 @@ class TahunLulus extends Model
     protected $table = 'tahun_lulus';
 
     protected $fillable = [
-        'tahun'
+        'tahun',
+        'nama_angkatan'
     ];
     use HasFactory;
 }
