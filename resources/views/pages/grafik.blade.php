@@ -42,7 +42,7 @@
         },
         options: {
           responsive: false,
-          rotation: Math.PI / 2, // 🔁 Rotasi 90 derajat (putar ke kanan)
+          rotation: 90, // 🔁 Rotasi 90 derajat (putar ke kanan)
           plugins: {
             legend: {
               position: 'bottom'
