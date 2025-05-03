@@ -18,7 +18,7 @@
                   Lulusan Angkatan {{ $dataPerTahun->pluck('nama_angkatan')->first() }} SMA Labschool
                   {{ $tahun }}
                 </h3>
-                <canvas id="chart-{{ $tahun }}" class="w-[200px] h-[200px] md:w-[300px] md:h-[300px]"></canvas>
+                <canvas id="chart-{{ $tahun }}" class="w-[250px] h-[250px] md:w-[300px] md:h-[300px]"></canvas>
               </div>
             @endforeach
 
